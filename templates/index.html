@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Rating</title>
+    <title>Rate Your Teachers!!</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </a>
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('vote', teacher_name=teachers[0]['name']) }}">Vote</a>
+                <a href="{{ url_for('results') }}">Results</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <header>
-            <h1>Rate Your Teachers</h1>
+            <h1>Rate Your Teachers!!</h1>
         </header>
         
         <div class="teachers">
@@ -21,6 +34,11 @@
                     <p class="teacher-name">{{ teacher['name'] }}</p>
                 </div>
             {% endfor %}
+        </div>
+
+        <div class="buttons">
+            <a href="{{ url_for('results') }}" class="btn results-btn">Results</a>
+            <a href="{{ url_for('vote', teacher_name=teachers[0]['name']) }}" class="btn vote-btn">Vote</a>
         </div>
     </div>
 </body>
