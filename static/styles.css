@@ -24,15 +24,17 @@ h1 {
 
 /* Teachers Section */
 .teachers {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+    gap: 20px; /* Space between cards */
+    justify-items: center;
+    margin-top: 20px;
 }
 
 .teacher-card {
     text-align: center;
-    width: 250px;
-    margin: 10px;
+    width: 100%;
+    max-width: 200px;
     padding: 20px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -59,62 +61,27 @@ h1 {
     cursor: pointer;
 }
 
-/* Teacher Details */
-.teacher-detail {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .teachers {
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row for screens smaller than 1200px */
+    }
 }
 
-.teacher-photo-large {
-    width: 200px;
-    height: auto;
-    border-radius: 50%;
+@media (max-width: 900px) {
+    .teachers {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row for screens smaller than 900px */
+    }
 }
 
-.teacher-bio {
-    font-size: 18px;
-    color: #555;
-    margin: 20px 0;
+@media (max-width: 600px) {
+    .teachers {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row for screens smaller than 600px */
+    }
 }
 
-.vote-form {
-    margin-top: 20px;
-}
-
-.slider {
-    width: 100%;
-    max-width: 300px;
-}
-
-.submit-btn {
-    background-color: #2e8b57; /* Green */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-}
-
-.submit-btn:hover {
-    background-color: #1f6f47; /* Darker Green */
-}
-
-.back-btn {
-    background-color: #ff6347; /* Red */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-}
-
-.back-btn:hover {
-    background-color: #e53d2b; /* Darker Red */
+@media (max-width: 400px) {
+    .teachers {
+        grid-template-columns: 1fr; /* 1 item per row for very small screens */
+    }
 }
