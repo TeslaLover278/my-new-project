@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Voting</title>
+    <title>Teacher Rating</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Teacher Voting</h1>
-            <p>Choose a teacher to vote for:</p>
+            <h1>Rate Your Teachers</h1>
         </header>
-        <ul class="teacher-list">
+        
+        <div class="teachers">
             {% for teacher in teachers %}
-            <li class="teacher-item">
-                <a href="{{ url_for('vote', teacher_name=teacher.name) }}" class="vote-btn">
-                    Vote for {{ teacher.name }}
-                </a>
-            </li>
+                <div class="teacher-card">
+                    <a href="{{ url_for('vote', teacher_name=teacher['name']) }}">
+                        <img src="{{ url_for('static', filename=teacher['photo']) }}" alt="{{ teacher['name'] }}" class="teacher-photo">
+                    </a>
+                    <p class="teacher-name">{{ teacher['name'] }}</p>
+                </div>
             {% endfor %}
-        </ul>
-        <a href="{{ url_for('results') }}" class="results-btn">View Results</a>
+        </div>
     </div>
 </body>
 </html>

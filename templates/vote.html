@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vote for {{ teacher_name }}</title>
+    <title>Rate {{ teacher.name }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Rate {{ teacher_name }}</h1>
+            <h1>Rate {{ teacher.name }}</h1>
         </header>
-        
-        <form method="POST" class="vote-form">
-            <label for="rating">Rate this teacher (1-10):</label><br><br>
-            <input type="range" id="rating" name="rating" min="1" max="10" step="1" value="5" class="slider" oninput="document.getElementById('slider-value').innerText = this.value">
-            <span id="slider-value">5</span><br><br>
-            <button type="submit" class="submit-btn">Submit Vote</button>
-        </form>
-        
+
+        <div class="teacher-detail">
+            <img src="{{ url_for('static', filename=teacher['photo']) }}" alt="{{ teacher['name'] }}" class="teacher-photo-large">
+            <p class="teacher-bio">{{ teacher['bio'] }}</p>
+
+            <form method="POST" class="vote-form">
+                <label for="rating">Rate this teacher (1-10):</label><br><br>
+                <input type="range" id="rating" name="rating" min="1" max="10" step="1" value="5" class="slider" oninput="document.getElementById('slider-value').innerText = this.value">
+                <span id="slider-value">5</span><br><br>
+                <button type="submit" class="submit-btn">Submit Vote</button>
+            </form>
+        </div>
+
         <button class="back-btn" onclick="window.location.href='{{ url_for('home') }}'">Back to Home</button>
     </div>
 </body>

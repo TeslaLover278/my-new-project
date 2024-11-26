@@ -1,93 +1,120 @@
-/* General styles */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
+    background-color: #f9f9f9;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: 80%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Header */
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 h1 {
-    color: #2d6a4f; /* Green color for the header */
+    color: #2e8b57; /* Green */
 }
 
-/* Buttons */
-button {
-    background-color: #e63946; /* Red color for buttons */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+/* Teachers Section */
+.teachers {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-button:hover {
-    background-color: #d62828; /* Darker red when hovered */
+.teacher-card {
+    text-align: center;
+    width: 250px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.back-btn {
-    background-color: #457b9d; /* Blue color for back button */
+.teacher-card:hover {
+    transform: scale(1.05);
 }
 
-.back-btn:hover {
-    background-color: #1d3557; /* Darker blue for hover effect */
-}
-
-/* Slider */
-.slider {
+.teacher-photo {
     width: 100%;
-    max-width: 400px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6347; /* Red */
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Teacher Details */
+.teacher-detail {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-photo-large {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.teacher-bio {
+    font-size: 18px;
+    color: #555;
     margin: 20px 0;
 }
 
-#slider-value {
-    font-size: 20px;
-    color: #2d6a4f; /* Green color for the displayed value */
-}
-
-/* Form */
 .vote-form {
-    text-align: center;
-}
-
-/* Results page */
-.results-table {
-    width: 100%;
-    border-collapse: collapse;
     margin-top: 20px;
 }
 
-.results-table th, .results-table td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
+.slider {
+    width: 100%;
+    max-width: 300px;
 }
 
-.results-table th {
-    background-color: #2d6a4f;
+.submit-btn {
+    background-color: #2e8b57; /* Green */
     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
 }
 
-.results-table tr:nth-child(even) {
-    background-color: #f1f1f1;
+.submit-btn:hover {
+    background-color: #1f6f47; /* Darker Green */
 }
 
-.results-table tr:nth-child(odd) {
-    background-color: #e9f1e8;
+.back-btn {
+    background-color: #ff6347; /* Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
 }
 
-
+.back-btn:hover {
+    background-color: #e53d2b; /* Darker Red */
+}

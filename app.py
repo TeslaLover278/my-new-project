@@ -4,9 +4,9 @@ app = Flask(__name__)
 
 # Sample data for teachers
 teachers = [
-    {'name': 'Teacher A', 'rating': 0, 'votes': 0},
-    {'name': 'Teacher B', 'rating': 0, 'votes': 0},
-    {'name': 'Teacher C', 'rating': 0, 'votes': 0}
+    {'name': 'Teacher A', 'photo': 'teacher_a.jpg', 'bio': 'Teacher A is passionate about science and loves to experiment.', 'rating': 0, 'votes': 0},
+    {'name': 'Teacher B', 'photo': 'teacher_b.jpg', 'bio': 'Teacher B excels in mathematics and makes complex concepts easy to understand.', 'rating': 0, 'votes': 0},
+    {'name': 'Teacher C', 'photo': 'teacher_c.jpg', 'bio': 'Teacher C has a deep knowledge of history and brings the past to life in class.', 'rating': 0, 'votes': 0}
 ]
 
 @app.route('/')
@@ -15,18 +15,16 @@ def home():
 
 @app.route('/vote/<teacher_name>', methods=['GET', 'POST'])
 def vote(teacher_name):
-    if request.method == 'POST':
+    teacher = next((teacher for teacher in teachers if teacher['name'] == teacher_name), None)
+    if request.method == 'POST' and teacher:
         rating = int(request.form['rating'])
-        for teacher in teachers:
-            if teacher['name'] == teacher_name:
-                teacher['rating'] = (teacher['rating'] * teacher['votes'] + rating) / (teacher['votes'] + 1)
-                teacher['votes'] += 1
+        teacher['rating'] = (teacher['rating'] * teacher['votes'] + rating) / (teacher['votes'] + 1)
+        teacher['votes'] += 1
         return redirect(url_for('home'))
-    return render_template('vote.html', teacher_name=teacher_name)
+    return render_template('vote.html', teacher=teacher)
 
 @app.route('/results')
 def results():
-    # Sort teachers by average rating and number of votes
     sorted_teachers = sorted(teachers, key=lambda x: (x['rating'], x['votes']), reverse=True)
     return render_template('results.html', teachers=sorted_teachers)
 
