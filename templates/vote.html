@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote for {{ teacher_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Vote for {{ teacher_name }}</h1>
+    <form method="POST">
+        <label for="rating">Rate this teacher (1 to 5):</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+        <button type="submit">Submit Vote</button>
+    </form>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
