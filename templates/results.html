@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Voting Results</h1>
-    <ul>
-        {% for teacher in teachers %}
-        <li>{{ teacher.name }} - Average Rating: {{ teacher.rating | round(2) }} ({{ teacher.votes }} votes)</li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('home') }}">Back to Home</a>
+    <div class="container">
+        <header>
+            <h1>Voting Results</h1>
+            <p>Here are the current results:</p>
+        </header>
+        <ul class="results-list">
+            {% for teacher in teachers %}
+            <li class="result-item">
+                <div class="result-info">
+                    <span>{{ teacher.name }}:</span>
+                    <span>Rating: {{ teacher.rating | round(2) }} ({{ teacher.votes }} votes)</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: {{ (teacher.rating / 5) * 100 }}%;"></div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('home') }}" class="back-btn">Back to Home</a>
+    </div>
 </body>
 </html>

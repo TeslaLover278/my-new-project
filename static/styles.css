@@ -1,36 +1,162 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* General Styles */
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
     color: #333;
 }
 
-ul {
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #4CAF50;
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Home Page */
+.teacher-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.teacher-item {
+    margin-bottom: 20px;
+}
+
+.vote-btn {
+    background-color: #f44336;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.vote-btn:hover {
+    background-color: #d32f2f;
+}
+
+.results-btn {
+    display: block;
+    text-align: center;
+    background-color: #4CAF50;
+    padding: 15px 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+.results-btn:hover {
+    background-color: #388e3c;
+}
+
+/* Vote Page */
+.vote-form {
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+    height: 15px;
+    background: #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.slider:hover {
+    background: #b2dfdb;
+}
+
+#slider-value {
+    font-size: 20px;
+    color: #4CAF50;
+    margin-left: 10px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #388e3c;
+}
+
+.back-btn {
+    display: block;
+    text-align: center;
+    background-color: #f44336;
+    padding: 10px 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Results Page */
+.results-list {
     list-style-type: none;
     padding: 0;
 }
 
-li {
-    margin-bottom: 10px;
+.result-item {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
+.result-info {
+    font-size: 18px;
 }
 
-a:hover {
-    text-decoration: underline;
+.progress-container {
+    width: 50%;
+    background-color: #ddd;
+    border-radius: 10px;
+    height: 15px;
 }
 
-form {
-    margin-top: 20px;
-}
-
-label {
-    margin-right: 10px;
+.progress-bar {
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 10px;
 }

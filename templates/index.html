@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Teacher Voting</h1>
-    <h2>Choose a teacher to vote for:</h2>
-    <ul>
-        {% for teacher in teachers %}
-        <li>
-            <a href="{{ url_for('vote', teacher_name=teacher.name) }}">
-                Vote for {{ teacher.name }}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('results') }}">View Results</a>
+    <div class="container">
+        <header>
+            <h1>Teacher Voting</h1>
+            <p>Choose a teacher to vote for:</p>
+        </header>
+        <ul class="teacher-list">
+            {% for teacher in teachers %}
+            <li class="teacher-item">
+                <a href="{{ url_for('vote', teacher_name=teacher.name) }}" class="vote-btn">
+                    Vote for {{ teacher.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('results') }}" class="results-btn">View Results</a>
+    </div>
 </body>
 </html>
