@@ -26,7 +26,9 @@ def vote(teacher_name):
 
 @app.route('/results')
 def results():
-    return render_template('results.html', teachers=teachers)
+    # Sort teachers by average rating and number of votes
+    sorted_teachers = sorted(teachers, key=lambda x: (x['rating'], x['votes']), reverse=True)
+    return render_template('results.html', teachers=sorted_teachers)
 
 if __name__ == '__main__':
     app.run(debug=True)

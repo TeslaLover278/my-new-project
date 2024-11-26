@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voting Results</title>
+    <title>Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Voting Results</h1>
-            <p>Here are the current results:</p>
+            <h1>Teacher Ranking</h1>
         </header>
-        <ul class="results-list">
-            {% for teacher in teachers %}
-            <li class="result-item">
-                <div class="result-info">
-                    <span>{{ teacher.name }}:</span>
-                    <span>Rating: {{ teacher.rating | round(2) }} ({{ teacher.votes }} votes)</span>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-bar" style="width: {{ (teacher.rating / 5) * 100 }}%;"></div>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        <a href="{{ url_for('home') }}" class="back-btn">Back to Home</a>
+        
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Teacher</th>
+                    <th>Average Rating</th>
+                    <th>Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for teacher in teachers %}
+                    <tr>
+                        <td>{{ teacher.name }}</td>
+                        <td>{{ teacher.rating|round(2) }}</td> <!-- Display average rating rounded to two decimal places -->
+                        <td>{{ teacher.votes }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button class="back-btn" onclick="window.location.href='{{ url_for('home') }}'">Back to Home</button>
     </div>
 </body>
 </html>
